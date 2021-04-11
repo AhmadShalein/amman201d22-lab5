@@ -50,10 +50,14 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) {
-   let sum1 = sum(a,b)[0] + c;
-   let mul1 = multiply(a,b)[0] * c;
-   
-   return [sum1, mul1, `${a} and ${b} and ${c} sum to ${sum1}.`,`The product of ${a} and ${b} and ${c} is ${mul1}.`]
+  let array =[a,b,c];
+  let totalSum= 0;
+  let totalMulti= 1;
+for (let i = 0 ; i <= 2 ; i++){
+  totalSum = sum(totalSum,array[i])[0];
+  totalMulti = multiply(totalMulti,array[i])[0];
+}
+  return [totalSum, totalMulti, `${a} and ${b} and ${c} sum to ${totalSum}.`,`The product of ${a} and ${b} and ${c} is ${totalMulti}.`]
 }
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
@@ -75,11 +79,11 @@ Test this function by hand in the console to get it working, and when you think 
 let testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) {
-  let sum2= sumAndMultiply(testArray[0],testArray[1],testArray[2])[0];
-  
-  return [sum2,`${testArray[0]},${testArray[1]},${testArray[2]} was passed in as an array of numbers, and 9 is their sum.`];
-}
+   let sum1= sum(sumArr[0],sumArr[1])[0];
+   let sum2= sum(sum1,sumArr[2])[0];
 
+   return [sum2,`${sumArr[0]},${sumArr[1]},${sumArr[2]} was passed in as an array of numbers, and 9 is their sum.`];
+}
 // Here is the test for sumArray(); uncomment it to run it
 
 testSumArray(testArray);
